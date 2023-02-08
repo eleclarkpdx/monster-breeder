@@ -1,0 +1,27 @@
+// TODO: trim these font imports
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto+Mono&family=Ubuntu&display=swap');
+
+$main-font: "Crete Round", serif;
+$main-text-color: rgba(0, 0, 0, 90%);
+$left-center: rgb(222, 255, 222);
+$right-center: rgb(175, 235, 235);
+$right-most: rgb(255, 222, 255);
+
+body {
+    min-height: 100%;
+    font: 16px $main-font;
+    color: $main-text-color;
+}
+
+.main-view {
+    display: flex;
+    align-items: stretch;
+}
+
+.my-monsters-main {
+    background-color: $left-center;
+}
+
+.my-monsters-aux {
+    background-color: $right-center;
+}
