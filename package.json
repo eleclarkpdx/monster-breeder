@@ -1,0 +1,19 @@
+{
+  "name": "monster-breeder",
+  "version": "0.0.1",
+  "description": "Breed strange and semi-procedural monsters to create an captivating cabal of creatures.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eleclarkpdx/monster-breeder.git"
+  },
+  "author": "Eleanore Clark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eleclarkpdx/monster-breeder/issues"
+  },
+  "homepage": "https://github.com/eleclarkpdx/monster-breeder#readme"
+}
