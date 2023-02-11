@@ -34,6 +34,8 @@ $ui-size: 40px;
 
 
 @mixin halfwidth-menu {
+    min-height: 100%;
+    min-width: 50%;
     max-width: 50%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -47,7 +49,7 @@ body {
     font: 16px $main-font;
 }
 
-.main-view {
+.my-monsters {
     position: fixed;
     right: 0;
     height: 100%;
