@@ -4,6 +4,7 @@
   "description": "Breed strange and semi-procedural monsters to create an captivating cabal of creatures.",
   "main": "index.html",
   "scripts": {
+    "start": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,13 @@
   },
   "homepage": "https://github.com/eleclarkpdx/monster-breeder#readme",
   "dependencies": {
-    "bootstrap-icons": "^1.10.3"
+    "bootstrap-icons": "^1.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10"
   }
 }
