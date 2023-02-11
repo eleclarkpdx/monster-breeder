@@ -27,7 +27,7 @@ interface SideMenuState {
 class SideMenu extends React.Component<{}, SideMenuState> {
     constructor(props: any) {
         super(props);
-        let collapsed: boolean = false;
+        let collapsed: boolean = true;
 
         this.state = {
             collapsed: collapsed,
@@ -35,13 +35,13 @@ class SideMenu extends React.Component<{}, SideMenuState> {
     }
 
     public collapseToggle(): boolean {
-        this.setState({collapsed: !this.state.collapsed});
-        return this.state.collapsed;
+        let toggled = !this.state.collapsed;
+        this.setState({collapsed: toggled});
+        return toggled;
     }
 
     render() {
-        let widthClass: String;
-        let buttonSymbol: String;
+        let widthClass: string;
         if (this.state.collapsed === true) {
             widthClass = "side-menu-closed";
         }
@@ -51,9 +51,8 @@ class SideMenu extends React.Component<{}, SideMenuState> {
 
         return (
             <div className={`side-menu ${widthClass}`}>
-                <SideMenuOpener
-                    collapseToggle={this.collapseToggle.bind(this)}
-                ></SideMenuOpener>
+                <SideMenuOpener collapseToggle={this.collapseToggle.bind(this)}></SideMenuOpener>
+                <SideMenuItems collapsed={this.state.collapsed}></SideMenuItems>
             </div>
         )
     }
@@ -71,12 +70,12 @@ class SideMenuOpener extends React.Component<SideMenuOpenerProps> {
     }
 
     render() {
-        let buttonSymbol: String;
+        let buttonSymbol: string;
         if (this.collapsed) {
-            buttonSymbol = "◁";
+            buttonSymbol = "▷";
         }
         else {
-            buttonSymbol = "▷";
+            buttonSymbol = "◁";
         }
 
         return (
@@ -84,6 +83,40 @@ class SideMenuOpener extends React.Component<SideMenuOpenerProps> {
         )
     }
 }
+
+interface SideMenuItemsProps {
+    collapsed: boolean;
+}
+
+class SideMenuItems extends React.Component<SideMenuItemsProps> {
+    render() {
+        let visibilityClass: string;
+        if (this.props.collapsed) {
+            visibilityClass = "collapsed";
+        }
+        else {
+            visibilityClass = "";
+        }
+        return (
+            <div className={`side-menu-items ${visibilityClass}`}>
+                <SideMenuItem></SideMenuItem>
+                <SideMenuItem></SideMenuItem>
+                <SideMenuItem></SideMenuItem>
+                <SideMenuItem></SideMenuItem>
+                <SideMenuItem></SideMenuItem>
+            </div>
+        )
+    }
+}
+
+class SideMenuItem extends React.Component {
+    render() {
+        return (
+            <div className="side-menu-item"></div>
+        )
+    }
+}
+
 
 class MyMonsters extends React.Component {
     render() {
