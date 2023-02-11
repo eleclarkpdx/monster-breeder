@@ -20,12 +20,67 @@ class MainView extends React.Component {
     }
 }
 
-class SideMenu extends React.Component {
+interface SideMenuState {
+    collapsed: boolean;
+}
+
+class SideMenu extends React.Component<{}, SideMenuState> {
+    constructor(props: any) {
+        super(props);
+        let collapsed: boolean = false;
+
+        this.state = {
+            collapsed: collapsed,
+        }
+    }
+
+    public collapseToggle(): boolean {
+        this.setState({collapsed: !this.state.collapsed});
+        return this.state.collapsed;
+    }
+
     render() {
+        let widthClass: String;
+        let buttonSymbol: String;
+        if (this.state.collapsed === true) {
+            widthClass = "side-menu-closed";
+        }
+        else {
+            widthClass = "side-menu-open";
+        }
+
         return (
-            <div className="side-menu side-menu-closed">
-                <button>▷</button>
+            <div className={`side-menu ${widthClass}`}>
+                <SideMenuOpener
+                    collapseToggle={this.collapseToggle.bind(this)}
+                ></SideMenuOpener>
             </div>
+        )
+    }
+}
+
+interface SideMenuOpenerProps {
+    collapseToggle: ()=>boolean;
+}
+
+class SideMenuOpener extends React.Component<SideMenuOpenerProps> {
+    private collapsed: boolean = true;
+    private handleClick = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        this.collapsed = this.props.collapseToggle();
+    }
+
+    render() {
+        let buttonSymbol: String;
+        if (this.collapsed) {
+            buttonSymbol = "◁";
+        }
+        else {
+            buttonSymbol = "▷";
+        }
+
+        return (
+            <button onClick={this.handleClick}>{buttonSymbol}</button>
         )
     }
 }
