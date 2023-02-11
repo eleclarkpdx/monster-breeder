@@ -59,12 +59,14 @@ body {
     position: fixed;
     left: 0;
     min-height: 100%;
-    width: 4vw;
     box-sizing: border-box;
     border: solid #000;
     border-width: $border-width $border-width $border-width 0;
     border-radius: 0 $border-radius $border-radius 0;
     background-color: $right-most;
+
+    transition-property: width;
+    transition-duration: 200ms;
 
     button {
         position: absolute;
@@ -80,3 +82,10 @@ body {
     }
 }
 
+.side-menu-closed {
+    width: 4vw;
+}
+
+.side-menu-open {
+    width: 33vw;
+}
