@@ -9,19 +9,25 @@
     /* Text */
     /* Other */
 
+//todo: do a final color pass
 $main-font: "Crete Round", serif;
 $main-text-color: rgba(0, 0, 0, 90%);
 $left-center: rgb(222, 255, 222);
+$left-center-light: rgb(240, 255, 240);
+$left-center-dark: rgb(128, 207, 128);
 $right-center: rgb(175, 235, 235);
-$right-most: rgb(255, 222, 255);
-$border-width: 4px;
-$border-radius: 20px;
+$right-center-light: rgb(225, 255, 255);
+$right-center-dark: rgb(113, 199, 199);
+$left-most: rgb(255, 222, 255);
 /* ideally, when transparent buttons are hovered over,
    they will take on a color relative to their previous color.
    i'll need to script this. for now, they get a placeholder color.
 */
+$bi-size: 40px;
 $placeholder-color: white;
-$bi-size: 60px;
+
+$border-width: 4px;
+$border-radius: 20px;
 
 @mixin halfwidth-menu {
     max-width: 50%;
@@ -32,6 +38,7 @@ $bi-size: 60px;
 body {
     margin: 0;
     min-height: 100vh;
+    background-color: $left-center;
     color: $main-text-color;
     font: 16px $main-font;
 }
@@ -48,11 +55,25 @@ body {
 .my-monsters-main {
     @include halfwidth-menu();
     background-color: $left-center;
+    scrollbar-color: $left-center-dark $left-center-light;
+    &::-webkit-scrollbar {
+        background-color: $left-center-light;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $left-center-dark;
+    }
 }
 
 .my-monsters-aux {
     @include halfwidth-menu();
     background-color: $right-center;
+    scrollbar-color: $right-center-dark $right-center-light;
+    &::-webkit-scrollbar {
+        background-color: $right-center-light;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $right-center-dark;
+    }
 }
 
 .side-menu {
@@ -63,7 +84,7 @@ body {
     border: solid #000;
     border-width: $border-width $border-width $border-width 0;
     border-radius: 0 $border-radius $border-radius 0;
-    background-color: $right-most;
+    background-color: $left-most;
 
     transition-property: width;
     transition-duration: 200ms;
@@ -74,7 +95,7 @@ body {
         right: 0;
         padding: 10px;
         border: none;
-        background-color: $right-most;
+        background-color: $left-most;
         font-size: $bi-size;
         &:hover {
             background-color: $placeholder-color;
