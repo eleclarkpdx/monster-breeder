@@ -1,11 +1,27 @@
 // TODO: trim these font imports
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto+Mono&family=Ubuntu&display=swap');
 
+/* lines inside a rule should be ordered as such: */
+    /* Positioning */
+    /* Display & Box Model */
+    /* Border */
+    /* Color */
+    /* Text */
+    /* Other */
+
 $main-font: "Crete Round", serif;
 $main-text-color: rgba(0, 0, 0, 90%);
 $left-center: rgb(222, 255, 222);
 $right-center: rgb(175, 235, 235);
 $right-most: rgb(255, 222, 255);
+$border-width: 4px;
+$border-radius: 20px;
+/* ideally, when transparent buttons are hovered over,
+   they will take on a color relative to their previous color.
+   i'll need to script this. for now, they get a placeholder color.
+*/
+$placeholder-color: white;
+$bi-size: 60px;
 
 @mixin halfwidth-menu {
     max-width: 50%;
@@ -14,14 +30,17 @@ $right-most: rgb(255, 222, 255);
 }
 
 body {
-    min-height: 100vh;
-    font: 16px $main-font;
-    color: $main-text-color;
     margin: 0;
+    min-height: 100vh;
+    color: $main-text-color;
+    font: 16px $main-font;
 }
 
 .main-view {
+    position: fixed;
+    right: 0;
     height: 100%;
+    width: 96vw;
     display: flex;
     align-items: stretch;
 }
@@ -35,3 +54,29 @@ body {
     @include halfwidth-menu();
     background-color: $right-center;
 }
+
+.side-menu {
+    position: fixed;
+    left: 0;
+    min-height: 100%;
+    width: 4vw;
+    box-sizing: border-box;
+    border: solid #000;
+    border-width: $border-width $border-width $border-width 0;
+    border-radius: 0 $border-radius $border-radius 0;
+    background-color: $right-most;
+
+    button {
+        position: absolute;
+        top: 45%;
+        right: 0;
+        padding: 10px;
+        border: none;
+        background-color: $right-most;
+        font-size: $bi-size;
+        &:hover {
+            background-color: $placeholder-color;
+        }
+    }
+}
+

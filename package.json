@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/eleclarkpdx/monster-breeder/issues"
   },
-  "homepage": "https://github.com/eleclarkpdx/monster-breeder#readme"
+  "homepage": "https://github.com/eleclarkpdx/monster-breeder#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.10.3"
+  }
 }
