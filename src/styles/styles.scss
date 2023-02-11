@@ -1,13 +1,13 @@
 // TODO: trim these font imports
-@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto+Mono&family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto+Mono&family=Ubuntu&display=swap");
 
 /* lines inside a rule should be ordered as such: */
-    /* Positioning */
-    /* Display & Box Model */
-    /* Border */
-    /* Color */
-    /* Text */
-    /* Other */
+/* Positioning */
+/* Display & Box Model */
+/* Border */
+/* Color */
+/* Text */
+/* Other */
 
 //todo: do a final color pass
 $main-text-color: rgba(0, 0, 0, 90%);
@@ -32,7 +32,6 @@ $border-radius: 20px;
 
 $main-font: "Crete Round", serif;
 $ui-size: 40px;
-
 
 @mixin halfwidth-menu {
     min-height: 100%;

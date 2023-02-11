@@ -1,22 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-function lorem(iterations: number):String {
+function lorem(iterations: number): String {
     let lor: String = "";
     for (let i = 0; i < iterations; ++i) {
-        lor += "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus odio vero reiciendis numquam eaque. Recusandae autem mollitia ex repellendus quam ipsam laudantium dolore cumque similique voluptatem assumenda, culpa eaque impedit? ";
+        lor +=
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus odio vero reiciendis numquam eaque. Recusandae autem mollitia ex repellendus quam ipsam laudantium dolore cumque similique voluptatem assumenda, culpa eaque impedit? ";
     }
     return lor;
 }
 
 class MainView extends React.Component {
-    render () {
+    render() {
         return (
             <div>
                 <MyMonsters></MyMonsters>
                 <SideMenu></SideMenu>
             </div>
-        )
+        );
     }
 }
 
@@ -31,12 +32,12 @@ class SideMenu extends React.Component<{}, SideMenuState> {
 
         this.state = {
             collapsed: collapsed,
-        }
+        };
     }
 
     public collapseToggle(): boolean {
         let toggled = !this.state.collapsed;
-        this.setState({collapsed: toggled});
+        this.setState({ collapsed: toggled });
         return toggled;
     }
 
@@ -44,22 +45,23 @@ class SideMenu extends React.Component<{}, SideMenuState> {
         let widthClass: string;
         if (this.state.collapsed === true) {
             widthClass = "side-menu-closed";
-        }
-        else {
+        } else {
             widthClass = "side-menu-open";
         }
 
         return (
             <div className={`side-menu ${widthClass}`}>
-                <SideMenuOpener collapseToggle={this.collapseToggle.bind(this)}></SideMenuOpener>
+                <SideMenuOpener
+                    collapseToggle={this.collapseToggle.bind(this)}
+                ></SideMenuOpener>
                 <SideMenuItems collapsed={this.state.collapsed}></SideMenuItems>
             </div>
-        )
+        );
     }
 }
 
 interface SideMenuOpenerProps {
-    collapseToggle: ()=>boolean;
+    collapseToggle: () => boolean;
 }
 
 class SideMenuOpener extends React.Component<SideMenuOpenerProps> {
@@ -67,20 +69,17 @@ class SideMenuOpener extends React.Component<SideMenuOpenerProps> {
     private handleClick = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
         this.collapsed = this.props.collapseToggle();
-    }
+    };
 
     render() {
         let buttonSymbol: string;
         if (this.collapsed) {
             buttonSymbol = "▷";
-        }
-        else {
+        } else {
             buttonSymbol = "◁";
         }
 
-        return (
-            <button onClick={this.handleClick}>{buttonSymbol}</button>
-        )
+        return <button onClick={this.handleClick}>{buttonSymbol}</button>;
     }
 }
 
@@ -93,8 +92,7 @@ class SideMenuItems extends React.Component<SideMenuItemsProps> {
         let visibilityClass: string;
         if (this.props.collapsed) {
             visibilityClass = "collapsed";
-        }
-        else {
+        } else {
             visibilityClass = "";
         }
         return (
@@ -105,18 +103,15 @@ class SideMenuItems extends React.Component<SideMenuItemsProps> {
                 <SideMenuItem></SideMenuItem>
                 <SideMenuItem></SideMenuItem>
             </div>
-        )
+        );
     }
 }
 
 class SideMenuItem extends React.Component {
     render() {
-        return (
-            <div className="side-menu-item"></div>
-        )
+        return <div className="side-menu-item"></div>;
     }
 }
-
 
 class MyMonsters extends React.Component {
     render() {
@@ -125,28 +120,23 @@ class MyMonsters extends React.Component {
                 <MyMonstersMain></MyMonstersMain>
                 <MyMonstersAux></MyMonstersAux>
             </div>
-        )
+        );
     }
 }
 
 class MyMonstersMain extends React.Component {
     render() {
         let lor = lorem(30);
-        return (
-            <div className="my-monsters-main">{lor}</div>
-        )
+        return <div className="my-monsters-main">{lor}</div>;
     }
 }
 
 class MyMonstersAux extends React.Component {
     render() {
         let lor = lorem(40);
-        return (
-            <div className="my-monsters-aux">{lor}</div>
-        )
+        return <div className="my-monsters-aux">{lor}</div>;
     }
 }
-
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
