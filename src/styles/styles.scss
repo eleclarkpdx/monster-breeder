@@ -10,24 +10,28 @@
     /* Other */
 
 //todo: do a final color pass
-$main-font: "Crete Round", serif;
 $main-text-color: rgba(0, 0, 0, 90%);
+$left-most: rgb(255, 222, 255);
+$left-most-light: rgb(255, 240, 255);
+$left-most-dark: rgb(221, 135, 221);
 $left-center: rgb(222, 255, 222);
 $left-center-light: rgb(240, 255, 240);
 $left-center-dark: rgb(128, 207, 128);
 $right-center: rgb(175, 235, 235);
 $right-center-light: rgb(225, 255, 255);
 $right-center-dark: rgb(113, 199, 199);
-$left-most: rgb(255, 222, 255);
 /* ideally, when transparent buttons are hovered over,
    they will take on a color relative to their previous color.
    i'll need to script this. for now, they get a placeholder color.
 */
-$bi-size: 40px;
 $placeholder-color: white;
 
 $border-width: 4px;
 $border-radius: 20px;
+
+$main-font: "Crete Round", serif;
+$ui-size: 40px;
+
 
 @mixin halfwidth-menu {
     max-width: 50%;
@@ -81,7 +85,7 @@ body {
     left: 0;
     min-height: 100%;
     box-sizing: border-box;
-    border: solid #000;
+    border: solid $left-most-dark;
     border-width: $border-width $border-width $border-width 0;
     border-radius: 0 $border-radius $border-radius 0;
     background-color: $left-most;
@@ -95,8 +99,9 @@ body {
         right: 0;
         padding: 10px;
         border: none;
-        background-color: $left-most;
-        font-size: $bi-size;
+        background-color: inherit;
+        color: $left-most-dark;
+        font: $ui-size bold;
         &:hover {
             background-color: $placeholder-color;
         }
