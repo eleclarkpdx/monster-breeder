@@ -37,6 +37,8 @@ $ui-size: 40px;
     min-height: 100%;
     min-width: 50%;
     max-width: 50%;
+    box-sizing: border-box;
+    padding: 60px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -46,7 +48,23 @@ body {
     min-height: 100vh;
     background-color: $left-center;
     color: $main-text-color;
-    font: 16px $main-font;
+    font: 1em $main-font;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 1.5em;
 }
 
 .my-monsters {
@@ -56,10 +74,12 @@ body {
     width: 96vw;
     display: flex;
     align-items: stretch;
+    text-align: center;
 }
 
 .my-monsters-main {
     @include halfwidth-menu();
+    float: left;
     background-color: $left-center;
     scrollbar-color: $left-center-dark $left-center-light;
     &::-webkit-scrollbar {
@@ -72,6 +92,7 @@ body {
 
 .my-monsters-aux {
     @include halfwidth-menu();
+    float: right;
     background-color: $right-center;
     scrollbar-color: $right-center-dark $right-center-light;
     &::-webkit-scrollbar {
@@ -117,6 +138,7 @@ body {
 
 .side-menu-closed {
     width: 4vw;
+    min-width: 30px;
 }
 
 .side-menu-open {

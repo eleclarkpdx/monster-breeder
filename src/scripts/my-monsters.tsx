@@ -126,8 +126,38 @@ class MyMonsters extends React.Component {
 
 class MyMonstersMain extends React.Component {
     render() {
+        let title: String = "My Monsters";
         let lor = lorem(30);
-        return <div className="my-monsters-main">{lor}</div>;
+        return (
+            <div className="my-monsters-main">
+                <h2>{title}</h2>
+                <MonstersMainButtons></MonstersMainButtons>
+                <input className="monsters-main-filter"></input>
+                <MonstersMainList></MonstersMainList>
+            </div>
+        );
+    }
+}
+
+class MonstersMainButtons extends React.Component {
+    render() {
+        return (
+            <div className="monsters-main-buttons">
+                <button className="monsters-main-button">View</button>
+                <button className="monsters-main-button">Breed</button>
+                <button className="monsters-main-button">Check</button>
+                <button className="monsters-main-button">Harvest</button>
+                <button className="monsters-main-button">Slaughter</button>
+            </div>
+        );
+    }
+}
+
+class MonstersMainList extends React.Component {
+    render() {
+        return (
+            <div className="monsters-main-list"></div>
+        );
     }
 }
 
